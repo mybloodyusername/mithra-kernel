@@ -1,7 +1,8 @@
 import {defineConfig} from "vite";
+import solidPlugin from "vite-plugin-solid";
 
 export default defineConfig({
-    plugins: [],
+    plugins: [solidPlugin()],
     build: {
         lib: {
             entry: 'src/index.ts',
@@ -12,5 +13,6 @@ export default defineConfig({
             },
         },
         minify: 'esbuild',
+        cssMinify: 'esbuild'
     }
 })

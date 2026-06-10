@@ -10,10 +10,12 @@
   },
   "devDependencies": {
     "esbuild": "^0.28.0",
+    "sass": "^1.100.0",
     "typescript": "~6.0.2",
     "vite": "^8.0.12"
   },
   "dependencies": {
-    "solid-js": "^1.9.13"
+    "solid-js": "^1.9.13",
+    "vite-plugin-solid": "^2.11.12"
   }
 }
