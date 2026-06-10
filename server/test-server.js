@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 const AD_DATA = [
     {
@@ -220,10 +221,13 @@ const reqReferrer = (req) => {
     const origin = req.get('origin');
     const host = req.get('host');
     const referer = req.get('referer');
-    return origin ?? host ?? referer ?? '';
+    return origin ?? referer ?? host ?? '';
 }
 
 app.use(express.json());
+app.use(cors({
+    origin: true,
+}))
 
 app.get('/api/publisher', (req, res) => {
 
@@ -235,7 +239,7 @@ app.get('/api/publisher', (req, res) => {
     }
 
     res.json({
-        referer: referrer ?? null,
+        referer: referrer,
         data: AD_DATA
     });
 });

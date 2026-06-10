@@ -1,40 +1,20 @@
 import {AdStoreManager} from "./core/store.ts";
 import {unwrap} from "solid-js/store";
+import {HttpClient} from "./core/http-client.ts";
 
 (() => {
     console.log('@Mithra/Kernel is alive and working...')
 
     const {setAds, ads, wads} = AdStoreManager();
 
-    setAds([
-        {
-            widget: {
-                type: 'SAMPLE_1',
-                selector: '#mithra-1',
-                isSlider: false,
-                id: '1'
-            },
-            content: [
-                {
-                    id: '1',
-                    landingUrl: 'digikala.ir',
-                    media: {
-                        image: [],
-                        video: []
-                    },
-                    slogan: 'This is a one time only chance to sing along Lady Gaga!',
-                    title: 'Wanna be a singer?',
-                    trackId: '1a2b3c4d5e6f7g8h9i0j'
-                }
-            ]
-        }
-    ])
-
-    console.log('0000ms -------> ads: ', unwrap(ads));
+    HttpClient.publisher().then(response => {
+        if (response.data.length) return;
+        setAds(response.data);
+    })
 
     setTimeout(() => {
         console.log('0100ms -------> ads: ', unwrap(ads));
         console.log('0100ms -------> wads: ', unwrap(wads));
-    }, 100)
+    }, 1000)
 
 })();

@@ -1,31 +1,22 @@
 import wretch from "wretch"
+import type {PublisherResponse} from "../types/server.ts";
 
 class HttpClientImpl {
-    get baseUrl(): string {
-        return this._baseUrl;
-    }
 
-    set baseUrl(value: string) {
-        this.wretch = wretch(this.baseUrl);
-        this._baseUrl = value;
-    }
-
-    private _baseUrl: string;
-
-    private wretch = wretch('');
+    private readonly baseUrl = 'http://localhost:3000'
+    private readonly wretch = wretch(this.baseUrl);
 
     constructor() {
 
     }
 
-    async get<T>(_endpoint: string, _params: Record<string, string>) {
-        const endpoint = new URL(_endpoint);
-        endpoint.search = new URLSearchParams(_params).toString();
-        return await this.wretch.get(endpoint.href)
-            .json<T>()
-            .catch((e: Error) => {
-                console.error('Mithra --> Uncaught error: ', e);
-                return e;
+    public async publisher() {
+        return await this.wretch
+            .get('/api/publisher')
+            .json<PublisherResponse>()
+            .catch((_e: Error) => {
+                console.error(_e);
+                return {referrer: '', data: []} as PublisherResponse
             })
     }
 
