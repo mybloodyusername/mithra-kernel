@@ -3,18 +3,13 @@ import type {AdData} from "../types/ad-data.ts";
 import type {AdRendered} from "../types/ad-rendered.ts";
 import {createEffect} from "solid-js";
 
-type AdStoreType = {
-    ads: AdData[];
-    wads: Record<string, AdRendered>;
-}
-
-const [store, setStore] = createStore<AdStoreType>({ads: [], wads: {}});
+const [adsStore, setAdsStore] = createStore<AdData[]>([]);
+const [wadsStore, setWadsStore] = createStore<Record<string, AdRendered>>({});
 
 const AdStoreManager = () => {
 
     createEffect(() => {
-        const ads = store.ads;
-        const wads = ads.reduce<Record<string, AdRendered>>((previousValue, currentValue) => {
+        const wads = adsStore.reduce<Record<string, AdRendered>>((previousValue, currentValue) => {
             previousValue[currentValue.widget.selector] = {
                 ...currentValue,
                 isRendered: false,
@@ -22,16 +17,26 @@ const AdStoreManager = () => {
             } satisfies AdRendered;
             return previousValue
         }, {} satisfies Record<string, AdRendered>)
-        setStore('wads', wads);
+        setWadsStore(wads);
     })
 
     const setAds = (value: AdData[]) => {
-        setStore('ads', [...value]);
+        setAdsStore(value);
+    }
+
+    const setWad = (selector: string, value: AdRendered) => {
+        setWadsStore(selector, value);
     }
 
     return {
         setAds,
-        store
+        setWad,
+        get ads() {
+            return adsStore;
+        },
+        get wads() {
+            return wadsStore
+        },
     }
 }
 
