@@ -4,7 +4,7 @@ import {unwrap} from "solid-js/store";
 (() => {
     console.log('@Mithra/Kernel is alive and working...')
 
-    const {setAds, store} = AdStoreManager();
+    const {setAds, ads, wads} = AdStoreManager();
 
     setAds([
         {
@@ -30,12 +30,11 @@ import {unwrap} from "solid-js/store";
         }
     ])
 
-
-    console.log('0000ms -------> ads: ', unwrap(store.ads));
+    console.log('0000ms -------> ads: ', unwrap(ads));
 
     setTimeout(() => {
-        console.log('0100ms -------> ads: ', unwrap(store.ads));
-        console.log('0100ms -------> wads: ', unwrap(store.wads));
+        console.log('0100ms -------> ads: ', unwrap(ads));
+        console.log('0100ms -------> wads: ', unwrap(wads));
     }, 100)
 
 })();
