@@ -4,4 +4,8 @@
 //     children: WidgetSchema[]
 // }
 
-export type WidgetSchema = 'SAMPLE_1' | 'SAMPLE_2'
+export type WidgetSchema = {
+    type: 'title' | 'slogan' | 'media' | 'cta' | 'row' | 'column',
+    style: never,
+    children: WidgetSchema[]
+}

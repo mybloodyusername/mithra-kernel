@@ -1,24 +1,35 @@
 import type {WidgetSchema} from "./widget-schema.ts";
 
 export type AdResponse = {
-    widget: {
-        id: string;
-        selector: string;
-        isSlider: boolean;
-        type: WidgetSchema;
-    },
-    content: {
-        id: string;
-        trackId: string;
-        media: {
-            video: AdResponseVideo[],
-            image: AdResponseImage[]
-        };
-        title: string;
-        slogan: string;
-        landingUrl: string;
-    }[]
+    widget: AdResponseWidget,
+    content: AdResponseContent[]
 }
+
+export type AdResponseWidget = {
+    id: string;
+    selector: string;
+    isSlider: boolean;
+    schema: WidgetSchema;
+}
+export type AdResponseContent = {
+    id: string;
+    trackId: string;
+    media: AdResponseMedia;
+    title: string;
+    slogan: string;
+    landingUrl: string;
+    cta: AdResponseCta
+}
+
+export type AdResponseCta = {
+    title: string;
+    color: string
+}
+
+export type AdResponseMedia = {
+    video: AdResponseVideo[],
+    image: AdResponseImage[]
+};
 
 export type AdResponseVideo = {
     id: string;

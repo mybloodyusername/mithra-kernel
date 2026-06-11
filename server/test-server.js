@@ -1,10 +1,43 @@
 import express from "express";
 import cors from "cors";
 
+const SAMPLE_SCHEMA = {
+    type: 'row',
+    style: {},
+    children: [
+        {
+            type: 'media',
+            style: {},
+            children: []
+        },
+        {
+            type: 'column',
+            style: {},
+            children: [
+                {
+                    type: 'title',
+                    style: {},
+                    children: []
+                },
+                {
+                    type: 'slogan',
+                    style: {},
+                    children: []
+                },
+                {
+                    type: 'cta',
+                    style: {},
+                    children: []
+                }
+            ]
+        }
+    ]
+}
+
 const AD_DATA = [
     {
         widget: {
-            type: 'SAMPLE_1',
+            schema: SAMPLE_SCHEMA,
             selector: '#mithra-1',
             isSlider: false,
             id: '1'
@@ -19,7 +52,11 @@ const AD_DATA = [
                 },
                 slogan: 'This is a one time only chance to sing along Lady Gaga!',
                 title: 'Wanna be a singer?',
-                trackId: '1a2b3c4d5e6f7g8h9i0j'
+                trackId: '1a2b3c4d5e6f7g8h9i0j',
+                cta: {
+                    title: 'Click to start',
+                    color: 'green'
+                }
             }
         ]
     },
@@ -229,7 +266,7 @@ app.use(cors({
     origin: true,
 }))
 
-app.get('/api/publisher', (req, res) => {
+app.post('/api/publisher', (req, res) => {
 
     const referrer = reqReferrer(req);
 
@@ -240,18 +277,7 @@ app.get('/api/publisher', (req, res) => {
 
     res.json({
         referer: referrer,
-        data: AD_DATA
-    });
-});
-
-app.get('/api/user', (req, res) => {
-    // You can access the params sent from your TypeScript 'get' function here
-    const userId = req.query.id || 'default';
-
-    res.json({
-        id: userId,
-        username: 'express_dev',
-        role: 'admin'
+        data: AD_DATA.filter(ad => req.body.foundedWidgetIds.includes(ad.widget.selector))
     });
 });
 

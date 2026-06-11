@@ -33,14 +33,14 @@ const setAdsMap = (data: AdResponse[]) => {
 
 const findWidgets = () => {
     const elements = document.querySelectorAll("[id^=mithra-]");
-    const elementsIds = Array.from(elements).map((el) => el.getAttribute('id'));
+    const elementsIds = Array.from(elements).map((el) => `#${el.getAttribute('id')}`);
     return {elements, elementsIds}
 }
 
 const findAndRenderAds = () => {
     const {elementsIds} = findWidgets();
     setStore('foundedWidgetIds', elementsIds)
-    HttpClient.publisher().then(response => {
+    HttpClient.publisher(elementsIds).then(response => {
         setStore('publisher', response);
     })
 }

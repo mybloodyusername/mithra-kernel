@@ -10,9 +10,9 @@ class HttpClientImpl {
 
     }
 
-    public async publisher() {
+    public async publisher(foundedWidgetIds: string[]) {
         return await this.wretch
-            .get('/api/publisher')
+            .post({foundedWidgetIds}, '/api/publisher')
             .json<PublisherResponse>()
             .catch((_e: Error) => {
                 console.error(_e);
