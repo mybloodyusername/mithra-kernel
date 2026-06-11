@@ -1,8 +1,8 @@
-import type {AdRendered} from "../types/ad-rendered.ts";
+import type {AdData} from "../types/ad-data.ts";
 import {render} from "solid-js/web";
 import {SampleWidget} from "../components/sample-widget.tsx";
 
-export const widgetRenderer = (wad: AdRendered) => {
+export const widgetRenderer = (wad: AdData) => {
     if (!wad.widgetContainer) return;
     try {
         render(() => SampleWidget({

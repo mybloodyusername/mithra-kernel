@@ -1,14 +1,9 @@
-import {AdStoreManager} from "./core/store.ts";
-import {HttpClient} from "./core/http-client.ts";
+import {GlobalStore} from "./core/store.ts";
 
 (() => {
     console.log('@Mithra/Kernel is alive and working...')
 
-    const {setAds} = AdStoreManager();
+    const {findAndRenderAds} = GlobalStore;
 
-    HttpClient.publisher().then(response => {
-        if (!response.data.length) return;
-        setAds(response.data);
-    })
-
+    findAndRenderAds();
 })();
