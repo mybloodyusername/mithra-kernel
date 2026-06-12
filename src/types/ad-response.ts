@@ -26,8 +26,8 @@ export type AdResponseCta = {
 }
 
 export type AdResponseMedia = {
-    video: AdResponseVideo[]
-    image: AdResponseImage[]
+    video: AdResponseVideo
+    image: AdResponseImage
 }
 
 export type AdResponseVideo = {

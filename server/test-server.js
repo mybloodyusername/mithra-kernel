@@ -121,10 +121,10 @@ const AD_DATA = [
                 media: {
                     image: {
                         id: '1m',
-                        width: 828,
-                        height: 1104,
+                        width: 1200,
+                        height: 900,
                         format: 'image/jpeg',
-                        url: 'http://localhost:3000/media/pat-3-4.jpeg',
+                        url: 'http://localhost:3000/media/pat-4-3.jpeg',
                     },
                     video: [],
                 },
