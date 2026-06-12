@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-const SAMPLE_SCHEMA = {
+const SAMPLE_SCHEMA_1 = {
     type: 'row',
     style: {},
     children: [
@@ -14,11 +14,6 @@ const SAMPLE_SCHEMA = {
             type: 'column',
             style: {},
             children: [
-                {
-                    type: 'title',
-                    style: {},
-                    children: []
-                },
                 {
                     type: 'slogan',
                     style: {},
@@ -33,11 +28,86 @@ const SAMPLE_SCHEMA = {
         }
     ]
 }
+const SAMPLE_SCHEMA_2 = {
+    type: 'row',
+    style: {},
+    children: [
+        {
+            type: 'media',
+            style: {},
+            children: []
+        },
+        {
+            type: 'column',
+            style: {},
+            children: [
+                {
+                    type: 'slogan',
+                    style: {},
+                    children: []
+                }
+            ]
+        }
+    ]
+}
+const SAMPLE_SCHEMA_3 = {
+    type: 'row',
+    style: {},
+    children: [
+        {
+            type: 'column',
+            style: {},
+            children: [
+                {
+                    type: 'slogan',
+                    style: {},
+                    children: []
+                },
+                {
+                    type: 'cta',
+                    style: {},
+                    children: []
+                }
+            ]
+        },
+        {
+            type: 'media',
+            style: {},
+            children: []
+        },
+    ]
+}
+const SAMPLE_SCHEMA_4 = {
+    type: 'column',
+    style: {},
+    children: [
+        {
+            type: 'media',
+            style: {},
+            children: []
+        },
+        {
+            type: 'slogan',
+            style: {},
+            children: []
+        },
+        {
+            type: 'cta',
+            style: {},
+            children: []
+        }
+    ]
+}
+const SAMPLE_SCHEMA_5 = {
+    type: 'media',
+    style: {},
+    children: []
+}
 
 const AD_DATA = [
     {
         widget: {
-            schema: SAMPLE_SCHEMA,
+            schema: SAMPLE_SCHEMA_1,
             selector: '#mithra-1',
             isSlider: false,
             id: '1'
@@ -51,10 +121,8 @@ const AD_DATA = [
                     video: []
                 },
                 slogan: 'This is a one time only chance to sing along Lady Gaga!',
-                title: 'Wanna be a singer?',
                 trackId: '1a2b3c4d5e6f7g8h9i0j',
                 cta: {
-                    title: 'Click to start',
                     color: 'green'
                 }
             }
@@ -76,7 +144,6 @@ const AD_DATA = [
                     video: []
                 },
                 slogan: '60% off for Jordan collection and many more special offers for you',
-                title: 'Basketball is in my blood',
                 trackId: '2a3b4c5d6e7f8g9h0i1j'
             }
         ]
@@ -97,7 +164,6 @@ const AD_DATA = [
                     video: []
                 },
                 slogan: 'Buy 2, get 3 and get a chance to win a G-Class!',
-                title: 'Special offer until June',
                 trackId: '4a3b4c7d6e7f8g1h0i5j'
             }
         ]
@@ -118,7 +184,6 @@ const AD_DATA = [
                     video: []
                 },
                 slogan: 'Experience the future with the latest Apple devices.',
-                title: 'Think Different',
                 trackId: '5b6c7d8e9f0g1h2i3j4k'
             }
         ]
@@ -139,7 +204,6 @@ const AD_DATA = [
                     video: []
                 },
                 slogan: 'Unfold the next generation of smartphones today.',
-                title: 'Galaxy Unpacked',
                 trackId: '6c7d8e9f0g1h2i3j4k5l'
             }
         ]
@@ -160,7 +224,6 @@ const AD_DATA = [
                     video: []
                 },
                 slogan: 'Millions of songs. No credit card needed.',
-                title: 'Music for everyone',
                 trackId: '7d8e9f0g1h2i3j4k5l6m'
             }
         ]
@@ -181,7 +244,6 @@ const AD_DATA = [
                     video: []
                 },
                 slogan: 'Unlimited movies, TV shows, and more.',
-                title: 'Watch anywhere',
                 trackId: '8e9f0g1h2i3j4k5l6m7n'
             }
         ]
@@ -202,7 +264,6 @@ const AD_DATA = [
                     video: []
                 },
                 slogan: 'Everything you need, delivered to your door.',
-                title: 'Shop smarter',
                 trackId: '9f0g1h2i3j4k5l6m7n8o'
             }
         ]
@@ -223,7 +284,6 @@ const AD_DATA = [
                     video: []
                 },
                 slogan: 'Electric cars, giant batteries and solar.',
-                title: 'Drive the future',
                 trackId: '0g1h2i3j4k5l6m7n8o9p'
             }
         ]
@@ -244,7 +304,6 @@ const AD_DATA = [
                     video: []
                 },
                 slogan: 'Find adventures nearby or in faraway places.',
-                title: 'Belong anywhere',
                 trackId: '1h2i3j4k5l6m7n8o9p0q'
             }
         ]

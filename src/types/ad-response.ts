@@ -15,7 +15,6 @@ export type AdResponseContent = {
     id: string;
     trackId: string;
     media: AdResponseMedia;
-    title: string;
     slogan: string;
     landingUrl: string;
     cta: AdResponseCta
