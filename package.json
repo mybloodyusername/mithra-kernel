@@ -17,6 +17,7 @@
         "prettier": "^3.8.4",
         "sass": "^1.100.0",
         "typescript": "~6.0.2",
+        "url": "^0.11.4",
         "vite": "^8.0.12",
         "vite-plugin-css-injected-by-js": "^5.0.1"
     },

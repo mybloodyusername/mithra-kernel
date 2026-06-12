@@ -1,5 +1,7 @@
 import express from 'express'
 import cors from 'cors'
+import { dirname } from 'node:path'
+import { fileURLToPath } from 'url'
 
 const SAMPLE_SCHEMA_1 = {
     type: 'row',
@@ -117,7 +119,13 @@ const AD_DATA = [
                 id: '1',
                 landingUrl: 'digikala.ir',
                 media: {
-                    image: [],
+                    image: {
+                        id: '1m',
+                        width: 828,
+                        height: 1104,
+                        format: 'image/jpeg',
+                        url: 'http://localhost:3000/media/pat-3-4.jpeg',
+                    },
                     video: [],
                 },
                 slogan: 'This is a one time only chance to sing along Lady Gaga!',
@@ -310,9 +318,6 @@ const AD_DATA = [
     },
 ]
 
-const app = express()
-const PORT = 3000
-
 const reqReferrer = (req) => {
     const origin = req.get('origin')
     const host = req.get('host')
@@ -320,12 +325,20 @@ const reqReferrer = (req) => {
     return origin ?? referer ?? host ?? ''
 }
 
+const app = express()
+const PORT = 3000
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
 app.use(express.json())
 app.use(
     cors({
         origin: true,
     })
 )
+
+app.use('/media', express.static(__dirname))
 
 app.post('/api/publisher', (req, res) => {
     const referrer = reqReferrer(req)
@@ -343,7 +356,6 @@ app.post('/api/publisher', (req, res) => {
     })
 })
 
-// Catch-all for 404s
 app.use((req, res) => {
     res.status(404).json({ error: 'Not found' })
 })
