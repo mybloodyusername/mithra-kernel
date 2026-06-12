@@ -13,8 +13,6 @@ type WidgetProps = {
 
 export const Widget: Component<WidgetProps> = ({content, schema}) => {
 
-    debugger;
-
     if (!content) return <div>No ad provided.</div>
 
     switch (schema.type) {

@@ -130,7 +130,7 @@ const AD_DATA = [
     },
     {
         widget: {
-            type: 'SAMPLE_1',
+            type: SAMPLE_SCHEMA_2,
             selector: '#mithra-2',
             isSlider: false,
             id: '2'
@@ -150,7 +150,7 @@ const AD_DATA = [
     },
     {
         widget: {
-            type: 'SAMPLE_1',
+            type: SAMPLE_SCHEMA_3,
             selector: '#mithra-3',
             isSlider: false,
             id: '3'
@@ -170,7 +170,7 @@ const AD_DATA = [
     },
     {
         widget: {
-            type: 'SAMPLE_1',
+            type: SAMPLE_SCHEMA_4,
             selector: '#mithra-4',
             isSlider: false,
             id: '4'
@@ -190,7 +190,7 @@ const AD_DATA = [
     },
     {
         widget: {
-            type: 'SAMPLE_1',
+            type: SAMPLE_SCHEMA_5,
             selector: '#mithra-5',
             isSlider: false,
             id: '5'
@@ -210,7 +210,7 @@ const AD_DATA = [
     },
     {
         widget: {
-            type: 'SAMPLE_1',
+            type: SAMPLE_SCHEMA_1,
             selector: '#mithra-6',
             isSlider: false,
             id: '6'
@@ -230,7 +230,7 @@ const AD_DATA = [
     },
     {
         widget: {
-            type: 'SAMPLE_1',
+            type: SAMPLE_SCHEMA_2,
             selector: '#mithra-7',
             isSlider: false,
             id: '7'
@@ -250,7 +250,7 @@ const AD_DATA = [
     },
     {
         widget: {
-            type: 'SAMPLE_1',
+            type: SAMPLE_SCHEMA_5,
             selector: '#mithra-8',
             isSlider: false,
             id: '8'
@@ -270,7 +270,7 @@ const AD_DATA = [
     },
     {
         widget: {
-            type: 'SAMPLE_1',
+            type: SAMPLE_SCHEMA_5,
             selector: '#mithra-9',
             isSlider: false,
             id: '9'
@@ -290,7 +290,7 @@ const AD_DATA = [
     },
     {
         widget: {
-            type: 'SAMPLE_1',
+            type: SAMPLE_SCHEMA_4,
             selector: '#mithra-10',
             isSlider: false,
             id: '10'
