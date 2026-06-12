@@ -1,22 +1,15 @@
 import type { AdData } from '../types/ad-data.ts'
 import { render } from 'solid-js/web'
-import { Widget } from '../ui/components/widget.tsx'
+import { Widget } from '../components/widget.tsx'
 
-export const widgetRenderer = (wad: AdData) => {
-    if (!wad.widgetContainer) return
+export const widgetRenderer = (adData: AdData) => {
+    if (!adData.widgetContainer) return
     try {
-        render(
-            () =>
-                Widget({
-                    schema: { ...wad.widget.schema },
-                    content: { ...wad.content[0] },
-                }),
-            wad.widgetContainer
-        )
-        wad.widgetContainer.setAttribute('mtr-rendered', '')
+        render(() => Widget({ adData: { ...adData } }), adData.widgetContainer)
+        adData.widgetContainer.setAttribute('mtr-rendered', '')
     } catch (error) {
         console.error(
-            `Failed to render widget with selector: ${wad.widget.selector}, id: ${wad.widget.id}`,
+            `Failed to render widget with selector: ${adData.widget.selector}, id: ${adData.widget.id}`,
             error
         )
     }
