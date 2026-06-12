@@ -1,14 +1,11 @@
-import type {Component, ParentProps} from "solid-js";
+import type { Component, ParentProps } from 'solid-js'
 
 interface ContainerProps extends ParentProps {
-    type: 'row' | 'column',
+    type: 'row' | 'column'
 }
 
-export const Container: Component<ContainerProps> = ({type, children}) => {
+export const Container: Component<ContainerProps> = ({ type, children }) => {
+    const containerClass = `mtr-${type}`
 
-    const containerClass = `mtr-${type}`;
-
-    return <div class={containerClass}>
-        {children}
-    </div>
+    return <div class={containerClass}>{children}</div>
 }

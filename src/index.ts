@@ -1,9 +1,9 @@
-import {GlobalStore} from "./core/store.ts";
+import { GlobalStore } from './core/store.ts'
 
-(() => {
+;(() => {
     console.log('@Mithra/Kernel is alive and working...')
 
-    const {findAndRenderAds} = GlobalStore;
+    const { findAndRenderAds } = GlobalStore
 
-    findAndRenderAds();
-})();
+    findAndRenderAds()
+})()
