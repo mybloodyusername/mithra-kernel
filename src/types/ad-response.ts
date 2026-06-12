@@ -1,46 +1,46 @@
-import type {WidgetSchema} from "./widget-schema.ts";
+import type { WidgetSchema } from './widget-schema.ts'
 
 export type AdResponse = {
-    widget: AdResponseWidget,
+    widget: AdResponseWidget
     content: AdResponseContent[]
 }
 
 export type AdResponseWidget = {
-    id: string;
-    selector: string;
-    isSlider: boolean;
-    schema: WidgetSchema;
+    id: string
+    selector: string
+    isSlider: boolean
+    schema: WidgetSchema
 }
 export type AdResponseContent = {
-    id: string;
-    trackId: string;
-    media: AdResponseMedia;
-    slogan: string;
-    landingUrl: string;
+    id: string
+    trackId: string
+    media: AdResponseMedia
+    slogan: string
+    landingUrl: string
     cta: AdResponseCta
 }
 
 export type AdResponseCta = {
-    title: string;
+    title: string
     color: string
 }
 
 export type AdResponseMedia = {
-    video: AdResponseVideo[],
+    video: AdResponseVideo[]
     image: AdResponseImage[]
-};
+}
 
 export type AdResponseVideo = {
-    id: string;
-    aspectRatio: number;
-    format: string;
-    url: string;
+    id: string
+    aspectRatio: number
+    format: string
+    url: string
 }
 
 export type AdResponseImage = {
-    id: string;
-    width: number;
-    height: number;
-    format: string;
-    url: string;
+    id: string
+    width: number
+    height: number
+    format: string
+    url: string
 }
