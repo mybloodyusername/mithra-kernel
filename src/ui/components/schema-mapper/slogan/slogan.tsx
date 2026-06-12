@@ -1,5 +1,7 @@
 import type { Component } from 'solid-js'
 
+import './slogan.scss'
+
 type SloganProps = {
     slogan: string
 }

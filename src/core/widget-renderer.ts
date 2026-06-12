@@ -1,6 +1,6 @@
 import type { AdData } from '../types/ad-data.ts'
 import { render } from 'solid-js/web'
-import { Widget } from '../components/widget/widget.tsx'
+import { Widget } from '../ui/components/widget.tsx'
 
 export const widgetRenderer = (wad: AdData) => {
     if (!wad.widgetContainer) return

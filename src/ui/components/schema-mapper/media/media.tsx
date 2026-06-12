@@ -1,5 +1,7 @@
 import type { Component } from 'solid-js'
-import type { AdResponseMedia } from '../../types/ad-response.ts'
+import type { AdResponseMedia } from '../../../../types/ad-response.ts'
+
+import './media.scss'
 
 type MediaProps = {
     media: AdResponseMedia
@@ -8,7 +10,7 @@ type MediaProps = {
 export const Media: Component<MediaProps> = ({}) => {
     return (
         <>
-            <div class="">Media goes here...</div>
+            <div class="mtr-media">Media goes here...</div>
         </>
     )
 }

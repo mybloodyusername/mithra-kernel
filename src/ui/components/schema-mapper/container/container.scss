@@ -1,0 +1,19 @@
+.mtr- {
+  &row,
+  &column {
+    display: flex;
+    gap: .25rem;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--mtr-bg-color);
+    color: var(--mtr-color);
+  }
+
+  &row {
+    flex-direction: row;
+  }
+
+  &column {
+    flex-direction: column;
+  }
+}

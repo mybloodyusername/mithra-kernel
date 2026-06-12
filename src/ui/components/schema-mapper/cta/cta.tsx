@@ -1,5 +1,7 @@
 import type { Component } from 'solid-js'
-import type { AdResponseCta } from '../../types/ad-response.ts'
+import type { AdResponseCta } from '../../../../types/ad-response.ts'
+
+import './cta.scss'
 
 type CtaProps = {
     cta: AdResponseCta
