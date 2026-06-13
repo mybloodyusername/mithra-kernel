@@ -1,0 +1,123 @@
+:root {
+  --mtr-color: inherit;
+  --mtr-bg-color: inherit;
+
+  --mtr-a-color: inherit;
+  --mtr-a-color-hover: #669BBC;
+
+  --mtr-cta-color: #fff;
+  --mtr-cta-bg-color: #003049;
+
+  --mtr-corner-outer: 16px;
+  --mtr-corner-inner: 12px;
+}
+
+.mtr-container {
+  display: flex;
+  width: 100%;
+  container: mithra-widget;
+  container-type: inline-size;
+}
+
+.mtr-widget {
+  max-width: 600px;
+  margin: auto;
+  padding: .25rem;
+  width: 100%;
+  border-radius: var(--mtr-corner-outer);
+  display: inline-block;
+  border: 1px solid currentColor;
+  box-sizing: border-box;
+  color: var(--mtr-a-color);
+  text-decoration: none;
+  transition: 200ms all;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--mtr-a-color-hover);
+    transition: 200ms all;
+
+    .mtr-cta {
+      transition: 200ms all;
+      transform: scale(1.1);
+    }
+
+    .mtr-media {
+      img {
+        animation: mtr-yo;
+        animation-duration: 250ms;
+        animation-iteration-count: 1;
+      }
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    transition: 200ms all;
+  }
+}
+
+.mtr-row {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: .5rem;
+
+  @container mithra-widget (max-width: 400px) {
+    flex-direction: column;
+  }
+}
+
+.mtr-media {
+  width: 50%;
+  display: flex;
+
+  @container mithra-widget (max-width: 400px) {
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: var(--mtr-corner-inner);
+  }
+}
+
+.mtr-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mtr-slogan {
+  text-align: center;
+}
+
+.mtr-cta {
+  display: inline;
+  padding: .5rem .75rem;
+  background-color: var(--mtr-cta-bg-color);
+  color: var(--mtr-cta-color);
+  border-radius: var(--mtr-corner-inner);
+  transition: 200ms all;
+}
+
+@keyframes mtr-yo {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

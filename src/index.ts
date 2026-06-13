@@ -3,7 +3,11 @@ import { GlobalStore } from './core/store.ts'
 ;(() => {
     console.log('@Mithra/Kernel is alive and working...')
 
-    const { findAndRenderAds } = GlobalStore
+    const { findAndRenderAds, dispose } = GlobalStore
 
-    findAndRenderAds()
+    document.addEventListener('onunload', () => dispose())
+
+    document.addEventListener('DOMContentLoaded', () => {
+        findAndRenderAds()
+    })
 })()
