@@ -4,7 +4,7 @@ import type { AdData } from '../types/ad-data.ts'
 import { createEffect, createRoot } from 'solid-js'
 import { widgetRenderer } from './widget-renderer.ts'
 import type { PublisherResponse } from '../types/server.ts'
-import { HttpClient } from './http-client.ts'
+import { Communicator } from './communicator.ts'
 
 type StoreModel = {
     foundedWidgetIds: string[]
@@ -50,7 +50,7 @@ const findAndRenderAds = () => {
     const { elementsIds } = findWidgets()
     startWidgetWatcher()
     setStore('foundedWidgetIds', elementsIds)
-    HttpClient.publisher(elementsIds).then((response) => {
+    Communicator.publisher(elementsIds).then((response) => {
         setStore('publisher', response)
     })
 }
@@ -63,10 +63,12 @@ const startWidgetWatcher = () => {
                 if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
                     const element = entry.target
                     const elementId = element.getAttribute('id')
-                    setStore('adsMap', `#${elementId}`, (v) => ({
+                    const adKey = `#${elementId}`
+                    setStore('adsMap', adKey, (v) => ({
                         ...v,
                         isVerified: true,
                     }))
+                    Communicator.verified(store.adsMap[adKey].content.trackId)
                     element.setAttribute('mtr-verified', '')
                     observer.unobserve(element)
                 }

@@ -294,6 +294,10 @@ app.post('/api/publisher', (req, res) => {
     })
 })
 
+app.post('/api/verified', (req, res) => {
+    res.status(200).send('OK');
+})
+
 app.use((req, res) => {
     res.status(404).json({ error: 'Not found' })
 })
