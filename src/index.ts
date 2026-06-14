@@ -1,17 +1,16 @@
-import { GlobalStore } from './core/store.ts'
 import { Communicator } from './core/communicator.ts'
 
-;(() => {
+;
+import { Kernel } from './core/kernel.ts'
+
+(async () => {
     console.log('@Mithra/Kernel is alive and working...')
 
-    const { findAndRenderAds, dispose } = GlobalStore
-
     document.addEventListener('onunload', () => {
-        dispose()
         Communicator.flushVerified()
     })
 
-    document.addEventListener('DOMContentLoaded', () => {
-        findAndRenderAds()
-    })
+    await Kernel.initiate();
+
+    document.addEventListener('DOMContentLoaded', () => {})
 })()
